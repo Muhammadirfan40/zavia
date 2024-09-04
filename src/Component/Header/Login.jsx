@@ -23,7 +23,7 @@ const Login = () => {
     const ctx = useContext(AuthContext)
 
     const handleLogin = () => {
-
+console.log(user)
         setUser({
             email: email,
             password: password
