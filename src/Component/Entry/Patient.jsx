@@ -35,7 +35,7 @@ const AddPatientForm = () => {
         };
 
 
-        axios.post('http://localhost:4000/api/patient/register', patientData).then((res) => {
+        axios.post('https://back-end-seven-xi.vercel.app/api/patient/register', patientData).then((res) => {
             console.log(res.data);
         }).then(() => {
             setName("");

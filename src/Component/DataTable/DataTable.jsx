@@ -45,7 +45,7 @@ export default function DataTable() {
         const fetchData = async () => {
 
             try {
-                const response = await axios.get('http://localhost:4000/api/patient/getallpatient');
+                const response = await axios.get('https://back-end-seven-xi.vercel.app/api/patient/getallpatient');
                 console.log(response.data.Patients)
                 setData(response.data.Patients);
                 setLoading(false);

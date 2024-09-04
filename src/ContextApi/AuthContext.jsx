@@ -22,11 +22,12 @@ export const AuthProvider = ({ children }) => {
     //         navigate("/")
     //     }
     // }, [])
-
+//https://back-end-seven-xi.vercel.app/
 
     const loginUser = async (credentials) => {
         setLoading(true)
-        const res = await axios.post('http://localhost:4000/api/user/login', credentials)
+        //const res = await axios.post('http://localhost:4000/api/user/login', credentials)
+        const res = await axios.post('https://back-end-seven-xi.vercel.app/api/user/login', credentials)
         if (res.data.error == true) {
             setError(res.data.message)
         }
