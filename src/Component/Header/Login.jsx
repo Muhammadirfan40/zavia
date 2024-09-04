@@ -63,7 +63,10 @@ console.log(user)
                                             value={email}
                                             required
                                             placeholder='Gmail'
-                                            onChange={(e) => setEmail(e.target.value)}
+                                            onChange={(e) => {
+                                                setEmail(e.target.value)
+                                                console.log(e.target.value)
+                                            }}
                                         />
                                     </div>
                                     <div className="form-group">
