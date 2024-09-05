@@ -129,8 +129,8 @@ const AddPatientForm = () => {
                         onChange={(e) => setDepartment(e.target.value)}
                     >
                         <option value="">Select Department</option>
-                        <option value="cardiology">Cardialogist</option>
-                        <option value="Chest">Chest</option>
+                        <option value="cardiology">1-Cardialogist</option>
+                        <option value="Chest">2-Chest</option>
                         <option value="ChildSpecialist ">Child Specialist</option>
                         <option value="Dentist">Dentist</option>
                         <option value="Dietitian and Nutritionist">Dietitian and Nutritionist</option>

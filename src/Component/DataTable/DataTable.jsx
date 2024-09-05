@@ -20,7 +20,7 @@ export default function DataTable() {
     let n = 1;
     const columns = [
         {
-            field: 'sr', headerName: 'Sr', width: 70,
+            field: 'sr', headerName: 'Sr', width: 40,
 
             renderCell: (params) => params.api.getRowIndexRelativeToVisibleRows(params.row._id) + 1,
 
@@ -34,7 +34,14 @@ export default function DataTable() {
         { field: 'department', headerName: 'Department', width: 130 },
         { field: 'maritalStatus', headerName: 'Martial Status', width: 130 },
         { field: 'city', headerName: 'City', width: 130 },
-        { field: 'roomnumber', headerName: 'Room num', width: 130 },
+        { field: 'roomnumber', headerName: 'Room num', width: 30 },
+        {
+            field: "actions", headerName: "actions", width: 130, renderCell: (value, row) => {
+                return <span><button onClick={() => EditPatient(value.id)} class='btn btn-info btn-sm me-1'>edit</button>
+                    <button onClick={() => PatientDelete(value.id)} class='btn btn-danger btn-sm'>delete</button></span>;
+            },
+        }
+
 
     ];
 
@@ -62,10 +69,8 @@ export default function DataTable() {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
 
-    const EditPatient = () => {
-
-        alert("Patient Edit !")
-
+    const EditPatient = (id) => {
+        console.log(id)
     };
 
     const PatientDelete = () => {
@@ -78,11 +83,12 @@ export default function DataTable() {
 
         <div className="container">
 
-            <div className="py-5">
+            <div className="py-">
 
                 <div className="row g-3">
 
-                    <div className="col-sm-6 mb-3 mb-sm-0">
+                    <div className="col-md-4 mb-3 mb-sm-0">
+
                         <div className="card">
                             <div className="card-body d-flex justify-content-between align-items-center" style={{ height: "100px" }}>
                                 <div>
@@ -97,47 +103,73 @@ export default function DataTable() {
                                 </div>
                             </div>
                         </div>
+
                     </div>
 
-                    <div className="col-sm-6 mb-3 mb-sm-0">
+                    <div className="col-md-4 mb-3 mb-sm-0">
+
                         <div className="card">
                             <div className="card-body d-flex justify-content-between align-items-center" style={{ height: "100px" }}>
                                 <div>
                                     <h5 className="card-title">Register New Patient</h5>
                                 </div>
                                 <div>
-                                    <Link to="/addPatient" className="btn bg-secondary text-white px-4">
+                                    <Link to="/addPatient" className="btn bg-success text-white px-4">
                                         ADD NEW
                                     </Link>
                                 </div>
                             </div>
                         </div>
+
                     </div>
 
+                    <div className="col-md-4 mb-3 mb-sm-0">
+
+                        <div className="card">
+                            <div className="card-body d-flex justify-content-between align-items-center" style={{ height: "100px" }}>
+                                <div>
+                                    <h5 className="card-title">User Logout</h5>
+                                </div>
+                                <div>
+                                    <button onClick={() => { ctx.logout() }} className="btn btn-danger"> Logout</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
 
                     <div style={{ height: 400, width: '100%' }}>
+
                         <DataGrid
+
                             rows={data}
                             getRowId={(r) => r._id}
+
                             columns={columns}
+
                             initialState={{
                                 pagination: {
-                                    paginationModel: { page: 0, pageSize: 5 },
+                                    paginationModel: { page: 0, pageSize: 100 },
                                 },
                             }}
-                        
-                            pageSizeOptions={[5, 10, 20]}
+
+                            pageSizeOptions={[10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 10000]}
 
                             sx={{ overflow: 'clip' }}
+
                         />
+
                     </div>
 
                     <div className='className="col-12 text-center mt-3"'>
+
                         <button onClick={() => { EditPatient() }} className="btn btn-primary">Edit</button>
                         <button onClick={() => { PatientDelete() }} className="btn btn-secondary ms-2">Delete</button>
 
                     </div>
-                    <button onClick={() => { ctx.logout() }} className="btn btn-secondary">Logout</button>
+
+
+
                 </div>
 
             </div>
