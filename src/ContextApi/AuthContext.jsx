@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
     //         navigate("/")
     //     }
     // }, [])
-//https://back-end-seven-xi.vercel.app/
+    //https://back-end-seven-xi.vercel.app/
 
     const loginUser = async (credentials) => {
         setLoading(true)
@@ -32,12 +32,13 @@ export const AuthProvider = ({ children }) => {
             setError(res.data.message)
         }
         else if (res.data.error == false) {
-            navigate('/dashboard')
-            localStorage.setItem("acces_token", JSON.stringify(res.data.acces_token))
             setIslogin(true)
+            localStorage.setItem("acces_token", JSON.stringify(res.data.acces_token))
+            navigate('/dashboard')
 
         }
         setLoading(false);
+
         setIslogin(false);
 
 

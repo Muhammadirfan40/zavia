@@ -7,6 +7,10 @@
     border-radius: 8px;
 }
 
+/* .patientcolor{
+    background-color: rgba(172, 255, 47, 0.473);
+} */
+
 .form-group {
     display: flex;
     flex-direction: column;
