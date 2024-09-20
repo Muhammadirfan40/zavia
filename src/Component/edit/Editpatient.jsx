@@ -67,7 +67,10 @@ const EditPatient = () => {
     const navigate = useNavigate()
     useEffect(() => {
 
-        axios.get(`http://localhost:4000/api/patient/byid/${params.id}`).then((res) => {
+       // axios.get(`http://localhost:4000/api/patient/byid/${params.id}`).then((res) => {
+       axios.get(`https://back-end-seven-xi.vercel.app/api/patient/byid/${params.id}`).then((res) => {
+
+        //httpClient.get(`/${params.id}`).then((res) => {
             console.log(res.data.Patient.name);
 
             setName(res.data.Patient.name);
@@ -100,7 +103,7 @@ const EditPatient = () => {
         };
 
 
-        axios.post('https://back-end-seven-xi.vercel.app/api/patient/register', patientData).then((res) => {
+          axios.put(`https://back-end-seven-xi.vercel.app/api/patient//update/${params.id}`, patientData).then((res) => {
             // axios.put(`http://localhost:4000/api/patient//update/${params.id}`, patientData).then((res) => {
             console.log(res.data);
             navigate("/dashboard")
