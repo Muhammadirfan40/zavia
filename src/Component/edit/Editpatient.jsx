@@ -103,7 +103,7 @@ const EditPatient = () => {
         };
 
 
-          axios.put(`https://back-end-seven-xi.vercel.app/api/patient//update/${params.id}`, patientData).then((res) => {
+          axios.put(`https://back-end-seven-xi.vercel.app/api/patient/update/${params.id}`, patientData).then((res) => {
             // axios.put(`http://localhost:4000/api/patient//update/${params.id}`, patientData).then((res) => {
             console.log(res.data);
             navigate("/dashboard")
