@@ -7,7 +7,7 @@ const SecureRoute = ({ children }) => {
 
     useEffect(() => {
         const token = JSON.parse(localStorage.getItem("acces_token"));
-        
+
         if (!token) {
             navigate("/")
         }

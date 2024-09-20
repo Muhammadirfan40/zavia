@@ -89,7 +89,8 @@ export default function DataTable() {
     const PatientDelete = async (id) => {
 
         try {
-            axios.delete(`http://localhost:4000/api/patient/delete/${id}`).then(res => {
+            axios.delete(`http://back-end-seven-xi.vercel.app/api/patient/delete/${id}`).then(res => {
+                // axios.delete(`http://localhost:4000/api/patient/delete/${id}`).then(res => {
                 notify()
 
                 if (res.status == 200) {
