@@ -77,7 +77,7 @@ const AddPatientForm = () => {
             maritalStatus,
             city,
             roomnumber,
-        }; s
+        };
 
         try {
             await axios.post('https://back-end-seven-xi.vercel.app/api/patient/register', patientData);
