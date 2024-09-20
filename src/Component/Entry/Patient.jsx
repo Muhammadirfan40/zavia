@@ -80,7 +80,8 @@ const AddPatientForm = () => {
         };
 
         try {
-            await axios.post('http://localhost:4000/api/patient/register', patientData);
+           await axios.post('https://back-end-seven-xi.vercel.app/api/patient/register', patientData);
+           // await axios.post('http://localhost:4000/api/patient/register', patientData);
             notify()
 
             // Clear form fields
