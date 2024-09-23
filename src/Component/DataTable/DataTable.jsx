@@ -181,9 +181,9 @@ export default function DataTable() {
                                 onChange={(e) => setSearchTerm(e.target.value)}
 
                             />
-                            <button className="btn btn-primary" type="submit">
+                            {/* <button className="btn btn-primary" type="submit">
                                 Search
-                            </button>
+                            </button> */}
                         </form>
 
                     </div>
